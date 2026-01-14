@@ -1,27 +1,22 @@
 {
-  "name": "Lift & Fuel Tracker",
-  "short_name": "Lift&Fuel",
-  "description": "Track your workouts and nutrition",
-  "start_url": ".",
-  "scope": ".",
+  "name": "Workout & Meal Tracker",
+  "short_name": "Workout Tracker",
+  "description": "Track your workouts and meals with ease",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#1f2937",
-  "orientation": "portrait-primary",
+  "background_color": "#0f0f1e",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
-  ],
-  "categories": ["health", "fitness", "lifestyle"],
-  "prefer_related_applications": false
+  ]
 }

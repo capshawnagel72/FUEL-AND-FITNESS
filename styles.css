@@ -1,0 +1,646 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #0f0f1e;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Login Screen */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #1a1a2e;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4a9eff;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #16213e;
+    border: 1px solid #2a3f5f;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #4a9eff;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #4a9eff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #357abd;
+}
+
+.login-container button:last-child {
+    background: #2a3f5f;
+}
+
+.login-container button:last-child:hover {
+    background: #3d5a80;
+}
+
+/* Header */
+.header {
+    background: #1a1a2e;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4a9eff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #4a9eff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background: #e74c3c;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    background: #1a1a2e;
+    border-bottom: 2px solid #2a3f5f;
+    position: sticky;
+    top: 61px;
+    z-index: 99;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    color: #e0e0e0;
+    background: #16213e;
+}
+
+.tab-btn.active {
+    color: #4a9eff;
+    border-bottom-color: #4a9eff;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.content-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+/* Week Selector */
+.week-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #1a1a2e;
+    border-radius: 8px;
+}
+
+.week-selector button {
+    padding: 10px 20px;
+    background: #4a9eff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.week-selector button:hover {
+    background: #357abd;
+}
+
+.week-selector span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4a9eff;
+}
+
+/* Day Selector */
+.day-selector {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.day-btn {
+    padding: 12px 8px;
+    background: #1a1a2e;
+    border: 2px solid #2a3f5f;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.day-btn:hover {
+    background: #16213e;
+    border-color: #4a9eff;
+}
+
+.day-btn.active {
+    background: #4a9eff;
+    border-color: #4a9eff;
+    color: white;
+}
+
+.day-btn small {
+    display: block;
+    font-size: 11px;
+    margin-top: 4px;
+    opacity: 0.8;
+}
+
+.day-btn.cardio-day {
+    border-color: #9b59b6;
+}
+
+.day-btn.cardio-day.active {
+    background: #9b59b6;
+    border-color: #9b59b6;
+}
+
+/* Workout Day */
+.workout-day h2 {
+    color: #4a9eff;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.exercise {
+    background: #1a1a2e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4a9eff;
+}
+
+.exercise h3 {
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.sets-reps {
+    color: #9ca3af;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Unit Selector */
+.unit-selector {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.unit-selector label {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.unit-selector select {
+    padding: 6px 12px;
+    background: #16213e;
+    border: 1px solid #2a3f5f;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.unit-selector select:focus {
+    outline: none;
+    border-color: #4a9eff;
+}
+
+/* Last Week's Data */
+.last-week-data {
+    background: #16213e;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border-left: 3px solid #9b59b6;
+}
+
+.last-week-data strong {
+    color: #9b59b6;
+    font-size: 14px;
+}
+
+.last-week-data em {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Exercise Inputs */
+.exercise-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.exercise-inputs input {
+    padding: 12px;
+    background: #16213e;
+    border: 1px solid #2a3f5f;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.exercise-inputs input:focus {
+    outline: none;
+    border-color: #4a9eff;
+}
+
+/* Exercise Notes */
+.exercise-notes {
+    margin-top: 12px;
+}
+
+.exercise-notes textarea {
+    width: 100%;
+    padding: 12px;
+    background: #16213e;
+    border: 1px solid #2a3f5f;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 60px;
+}
+
+.exercise-notes textarea:focus {
+    outline: none;
+    border-color: #4a9eff;
+}
+
+.exercise-notes textarea::placeholder {
+    color: #6b7280;
+}
+
+/* Workout Complete */
+.workout-complete {
+    margin-top: 30px;
+    padding: 20px;
+    background: #1a1a2e;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.workout-complete label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.workout-complete input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Cardio Notes */
+.cardio-note {
+    color: #9ca3af;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    background: #16213e;
+    border: 1px solid #2a3f5f;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-family: inherit;
+    font-size: 16px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #4a9eff;
+}
+
+/* Meal Day */
+.meal-day h2 {
+    color: #4a9eff;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.meal {
+    background: #1a1a2e;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #27ae60;
+    transition: all 0.3s;
+}
+
+.meal.eaten {
+    opacity: 0.6;
+    border-left-color: #95a5a6;
+}
+
+.meal h3 {
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.meal p {
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.meal label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.meal input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Progress */
+.week-summary {
+    background: #1a1a2e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.week-summary h3 {
+    color: #4a9eff;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.day-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #16213e;
+    border-radius: 6px;
+    border-left: 3px solid #e74c3c;
+}
+
+.day-summary.completed {
+    border-left-color: #27ae60;
+}
+
+.export-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: #4a9eff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.export-btn:hover {
+    background: #357abd;
+}
+
+/* Profile */
+.profile-section {
+    background: #1a1a2e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.profile-section h3 {
+    color: #4a9eff;
+    margin-bottom: 15px;
+}
+
+.profile-section input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #16213e;
+    border: 1px solid #2a3f5f;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.profile-section input:focus {
+    outline: none;
+    border-color: #4a9eff;
+}
+
+.profile-section button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #4a9eff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-section button:hover {
+    background: #357abd;
+}
+
+.delete-btn {
+    background: #e74c3c !important;
+}
+
+.delete-btn:hover {
+    background: #c0392b !important;
+}
+
+.profile-section label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.profile-section input[type="checkbox"] {
+    width: auto;
+}
+
+.profile-section input[type="time"] {
+    margin: 5px 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .tab-btn {
+        font-size: 14px;
+        padding: 12px 8px;
+    }
+
+    .content-container {
+        padding: 15px;
+    }
+
+    .day-selector {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+
+    .day-btn {
+        padding: 10px 4px;
+        font-size: 12px;
+    }
+
+    .day-btn small {
+        font-size: 10px;
+    }
+
+    .exercise-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .workout-day h2,
+    .meal-day h2 {
+        font-size: 24px;
+    }
+}
+
+/* Small screen optimization */
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 15px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .user-info span {
+        display: none;
+    }
+
+    .tab-btn {
+        font-size: 12px;
+        padding: 10px 4px;
+    }
+
+    .week-selector {
+        padding: 12px;
+    }
+
+    .week-selector button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
